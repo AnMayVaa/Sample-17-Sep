@@ -25,8 +25,7 @@ void setup() {
         while (j < cols) {
           
             draw_tiles(10 + j * w, 10 + i * h);
-          
-            draw_lines(10 + j * w, 10 + i * h, grid[i][j]);
+
             println(i, j, grid[i][j]);
             j++;
         }
@@ -81,13 +80,16 @@ void shuffle_2D_Array(int[][] arr) {
   }
 }
 
-void draw(){}
+void draw(){
+}
 
 void mouseClicked(){
   int clickedRow = mouseY / h;
   int clickedCol = mouseX / w;
   
   println(grid[firstRow][firstCol],":",grid[clickedRow][clickedCol]);
+
+  draw_lines(10 + clickedCol * w, 10 + clickedRow * h, grid[clickedRow][clickedCol]);
   
   if(firstClick){
     firstRow = clickedRow;
