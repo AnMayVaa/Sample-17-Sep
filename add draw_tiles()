@@ -23,7 +23,9 @@ void setup() {
 
         int j = 0;
         while (j < cols) {
-
+          
+            draw_tiles(10 + j * w, 10 + i * h);
+          
             draw_lines(10 + j * w, 10 + i * h, grid[i][j]);
             println(i, j, grid[i][j]);
             j++;
@@ -101,4 +103,11 @@ void mouseClicked(){
     }
     firstClick = true;
   }
+}
+
+void draw_tiles(int x, int y){
+  line(x-20,y-20,x+80,y-20);
+  line(x+80,y-20,x+80,y+60);
+  line(x+80,y+60,x-20,y+60);
+  line(x-20,y+60,x-20,y-20);
 }
