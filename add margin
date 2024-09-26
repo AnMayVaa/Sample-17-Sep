@@ -4,6 +4,7 @@ int[][] complete_grid = {{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}};
 int w, h;
 boolean firstClick = true;
 int firstRow, firstCol;
+int margin = 22;
 
 void setup(){
   size(500, 500);
@@ -79,7 +80,7 @@ void mouseClicked(){
     println(grid[firstRow][firstCol],":",grid[clickedRow][clickedCol]);
   
     if(current_grid[clickedRow][clickedCol] == 0){
-      draw_lines(10 + clickedCol * w, 10 + clickedRow * h, grid[clickedRow][clickedCol]);
+      draw_lines(10 + clickedCol * w + margin, 10 + clickedRow * h + margin, grid[clickedRow][clickedCol]);
       current_grid[clickedRow][clickedCol] = 1;
       if(firstClick){
         firstRow = clickedRow;
@@ -114,7 +115,7 @@ void draw_all_tiles(){
   while (i < rows){
     int j = 0;
     while (j < cols){
-      draw_tiles(10 + j * w, 10 + i * h);
+      draw_tiles(10 + j * w + margin, 10 + i * h + margin);
       j++;
     }
     i++;
@@ -138,7 +139,7 @@ void draw_current_grid(){
     int j = 0;
     while (j < cols){
       if(current_grid[i][j] == 1)
-      draw_lines(10 + j * w, 10 + i * h, grid[i][j]);
+      draw_lines(10 + j * w + margin, 10 + i * h + margin, grid[i][j]);
       j++;
     }
     i++;
